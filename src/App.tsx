@@ -9,10 +9,10 @@ const App = () => {
       <GridItem area={"nav"}>
         <NavBar />
       </GridItem>
-      <GridItem area={"aside"} bg="yellow" hideBelow={"lg"}>
+      <GridItem area={"aside"} hideBelow={"lg"}>
         Aside
       </GridItem>
-      <GridItem area={"main"} bg="blue">
+      <GridItem area={"main"}>
         Main
       </GridItem>
     </Grid>
