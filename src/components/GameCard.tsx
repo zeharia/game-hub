@@ -11,6 +11,7 @@ interface Props {
 const GameCard = ({ game }: Props) => {
   return (
     <Card.Root
+      width="300px"
       overflow={"hidden"}
       borderRadius="10px"
       bg="gray.800"
