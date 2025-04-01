@@ -1,6 +1,6 @@
 import { Platform } from "@/hook/useGames";
 import usePlatforms from "@/hook/usePlatforms";
-import { HStack, Menu, Text } from "@chakra-ui/react";
+import { Button, Menu, Portal } from "@chakra-ui/react";
 import { IoMdArrowDropdown } from "react-icons/io";
 
 interface Props {
@@ -13,23 +13,27 @@ const PlatformSelector = ({ onSelectedPlatform, selectedPlatform }: Props) => {
   if (error) return null;
   return (
     <Menu.Root>
-      <Menu.Trigger padding={3}>
-        <HStack>
-          <Text>{selectedPlatform?.name || "Platforms"}</Text>
+      <Menu.Trigger>
+        <Button variant="outline" size="sm" >
+          {selectedPlatform?.name || "Platforms"}
           <IoMdArrowDropdown size="20px"></IoMdArrowDropdown>
-        </HStack>
+        </Button>
       </Menu.Trigger>
-      <Menu.Content boxSize={300}>
-        {data.map((platform) => (
-          <Menu.Item
-            onClick={() => onSelectedPlatform(platform)}
-            value={platform.name}
-            key={platform.id}
-          >
-            {platform.name}
-          </Menu.Item>
-        ))}
-      </Menu.Content>
+      <Portal>
+        <Menu.Positioner>
+          <Menu.Content>
+            {data.map((platform) => (
+              <Menu.Item
+                onClick={() => onSelectedPlatform(platform)}
+                value={platform.name}
+                key={platform.id}
+              >
+                {platform.name}
+              </Menu.Item>
+            ))}
+          </Menu.Content>
+        </Menu.Positioner>
+      </Portal>
     </Menu.Root>
   );
 };
