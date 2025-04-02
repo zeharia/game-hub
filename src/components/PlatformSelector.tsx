@@ -13,7 +13,7 @@ const PlatformSelector = ({ onSelectedPlatform, selectedPlatform }: Props) => {
   if (error) return null;
   return (
     <Menu.Root>
-      <Menu.Trigger>
+      <Menu.Trigger asChild>
         <Button variant="outline" size="sm" >
           {selectedPlatform?.name || "Platforms"}
           <IoMdArrowDropdown size="20px"></IoMdArrowDropdown>

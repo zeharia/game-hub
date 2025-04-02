@@ -20,7 +20,7 @@ const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
   );
   return (
     <Menu.Root>
-      <Menu.Trigger>
+      <Menu.Trigger asChild>
         <Button variant="outline" size="sm">
           Order by:{currentSortSelector?.label || 'Relevance'}
           <IoMdArrowDropdown size="20px"></IoMdArrowDropdown>
