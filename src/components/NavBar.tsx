@@ -3,12 +3,15 @@ import logo from "../assets/logo.webp";
 import { ColorModeButton, useColorMode } from "./ui/color-mode";
 import SearchInput from "./SearchInput";
 
-const NavBar = () => {
+interface Porps {
+  onSearch: (text: string) => void;
+}
+const NavBar = ({onSearch}:Porps) => {
   const { colorMode } = useColorMode();
   return (
-    <HStack p="0" m="0">
+    <HStack justifyContent='space-between' p="0" m="0">
       <Image src={logo} height="60px" p="0" m="0" />
-      <SearchInput />
+      <SearchInput onSearch={onSearch} />
       <HStack padding="20px">
         <ColorModeButton />
         <Text whiteSpace="nowrap">
